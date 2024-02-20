@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity(name="TBL_ACCOUNT")
 @Setter
 @Getter
@@ -32,4 +34,12 @@ public class AccountEntity {
 
     @Column(name="EMAIL")
     private String email;
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "USER_MENU",
+            joinColumns = { @JoinColumn(name = "ACCOUNT_ID") },
+            inverseJoinColumns = { @JoinColumn(name = "ITEM_ID") }
+    )
+    List<ItemEntity> fixedMenuItems;
 }

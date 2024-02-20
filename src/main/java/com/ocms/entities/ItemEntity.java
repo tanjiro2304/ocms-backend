@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity(name = "TBL_ITEM")
 @Setter
 @Getter
@@ -14,14 +16,17 @@ import lombok.Setter;
 public class ItemEntity {
 
     @Id
-    @Column(name="ID")
+    @Column(name="ITEM_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long itemId;
 
     @Column(name="ITEM_NAME")
     private String itemName;
 
     @Column(name="ITEM_PRICE")
     private Double itemPrice;
+
+    @ManyToMany(mappedBy = "fixedMenuItems")
+    private List<AccountEntity> accountList;
     
 }
