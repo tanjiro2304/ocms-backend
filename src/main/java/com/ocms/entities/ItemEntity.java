@@ -26,4 +26,7 @@ public class ItemEntity {
     @Column(name = "ITEM_PRICE")
     private Double itemPrice;
 
+    @Column(name = "ITEM_QUANTITY")
+    private Integer itemQuantity;
+
 }

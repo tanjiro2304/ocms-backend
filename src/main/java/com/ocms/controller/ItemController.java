@@ -1,5 +1,6 @@
 package com.ocms.controller;
 
+import com.ocms.dto.ItemDto;
 import com.ocms.entities.ItemEntity;
 import com.ocms.service.ItemService;
 import jakarta.validation.Valid;
@@ -26,7 +27,7 @@ public class ItemController {
     }
 
     @GetMapping("/fetchAll")
-    public ResponseEntity<List<ItemEntity>> fetchAll() {
+    public ResponseEntity<List<ItemDto>> fetchAll() {
         return ResponseEntity.ok(itemService.findAll());
     }
 
