@@ -9,7 +9,7 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity(name = "TBL_MONTHLY_ORDER")
+@Entity(name = "TBL_SUBSCRIPTION")
 @Setter
 @Getter
 @AllArgsConstructor
