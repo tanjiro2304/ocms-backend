@@ -15,18 +15,16 @@ import java.util.List;
 @NoArgsConstructor
 public class ItemEntity {
 
+    @ManyToMany(mappedBy = "orderItems")
+    List<OrderEntity> orderEntities;
     @Id
-    @Column(name="ITEM_ID")
+    @Column(name = "ITEM_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long itemId;
-
-    @Column(name="ITEM_NAME")
+    @Column(name = "ITEM_NAME")
     private String itemName;
-
-    @Column(name="ITEM_PRICE")
+    @Column(name = "ITEM_PRICE")
     private Double itemPrice;
-
-    @ManyToMany(mappedBy = "fixedMenuItems")
-    private List<AccountEntity> accountList;
-    
+    @ManyToMany(mappedBy = "items")
+    private List<SubscriptionEntity> subscriptionEntities;
 }

@@ -13,22 +13,18 @@ import lombok.Setter;
 @NoArgsConstructor
 public class UserEntity {
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "ROLES")
+    Roles role;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
-
     @Column(name = "USERNAME")
     private String username;
-
     @Column(name = "PASSWORD")
     private String password;
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ACCOUNT_ID")
     private AccountEntity account;
-
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ROLE_ID")
-    private RoleEntity role;
 }
