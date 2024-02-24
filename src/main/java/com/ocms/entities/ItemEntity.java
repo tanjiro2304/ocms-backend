@@ -25,6 +25,5 @@ public class ItemEntity {
     private String itemName;
     @Column(name = "ITEM_PRICE")
     private Double itemPrice;
-    @ManyToMany(mappedBy = "items")
-    private List<SubscriptionEntity> subscriptionEntities;
+
 }

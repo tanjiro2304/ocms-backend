@@ -30,7 +30,7 @@ public class SecurityConfig {
                 .and()
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(HttpMethod.POST,"/register/login","/register/signup",
-                                "/register",
+                                "/register","/item/add","/subscriptionPlan/add","/item/fetchAll",
                                 "/booking/save","/stations/saveAll","/stations/save ").permitAll()
                         .requestMatchers(HttpMethod.GET, "/booking/findAll","/stations/findAll").permitAll()
                         .anyRequest().authenticated())

@@ -20,16 +20,14 @@ public class SubscriptionEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long subscriptionId;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
-    @JoinTable(
-            name = "ORDER_ITEM",
-            joinColumns = {@JoinColumn(name = "SUBSCRIPTION_ID")},
-            inverseJoinColumns = {@JoinColumn(name = "ITEM_ID")}
-    )
-    private List<ItemEntity> items;
-
     @Column(name = "START_DATE")
     private LocalDate startDate;
+
+    @Column(name = "PLAN_NAME")
+    private String planName;
+
+    @Column(name = "PLAN_DESCRIPTION")
+    private String planDescription;
 
     @Column(name = "END_DATE")
     private LocalDate endDate;
@@ -37,6 +35,10 @@ public class SubscriptionEntity {
     @Column(name = "AMOUNT")
     private Double amount;
 
+    @Column(name = "Validity")
+    private String validity;
+
     @ManyToMany(mappedBy = "subscriptionEntities")
     private List<AccountEntity> account;
 }
+

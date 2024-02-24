@@ -25,13 +25,13 @@ public class AuthenticationController {
     public ResponseEntity<UserEntity> login(@RequestBody @Valid UserEntity userEntity) {
         UserEntity user = userService.login(userEntity);
         user.setToken(userAuthenticationProvider.createToken(userEntity.getUsername()));
-        return ResponseEntity.ok(userEntity);
+        return ResponseEntity.ok(user);
     }
 
     @PostMapping("/signup")
     public ResponseEntity<UserEntity> signUp(@RequestBody @Valid UserEntity userEntity) {
         UserEntity user = userService.save(userEntity);
         user.setToken(userAuthenticationProvider.createToken(userEntity.getUsername()));
-        return ResponseEntity.ok(userEntity);
+        return ResponseEntity.ok(user);
     }
 }
