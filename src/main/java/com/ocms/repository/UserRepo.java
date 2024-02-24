@@ -1,4 +1,8 @@
 package com.ocms.repository;
 
-public interface UserRepo {
+import com.ocms.entities.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UserRepo extends JpaRepository<Long, UserEntity> {
+    UserEntity findByUsername(String username);
 }

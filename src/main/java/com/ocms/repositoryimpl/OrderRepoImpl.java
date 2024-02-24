@@ -1,7 +1,8 @@
 package com.ocms.repositoryimpl;
 
+import com.ocms.repository.OrderRepo;
 import jakarta.annotation.Resource;
 
 @Resource
-public class OrderRepoImpl {
+public abstract class OrderRepoImpl implements OrderRepo {
 }

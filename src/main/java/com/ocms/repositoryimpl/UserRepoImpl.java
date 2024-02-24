@@ -1,7 +1,8 @@
 package com.ocms.repositoryimpl;
 
+import com.ocms.repository.UserRepo;
 import jakarta.annotation.Resource;
 
 @Resource
-public class UserRepoImpl {
+public abstract class UserRepoImpl implements UserRepo {
 }
