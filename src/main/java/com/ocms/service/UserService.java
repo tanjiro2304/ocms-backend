@@ -1,8 +1,11 @@
 package com.ocms.service;
 
 import com.ocms.entities.UserEntity;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface UserService extends UserDetailsService {
+public interface UserService {
+    UserEntity login(UserEntity userEntity);
+
     UserEntity loadUserByUsername(String username);
+
+    UserEntity save(UserEntity user);
 }
