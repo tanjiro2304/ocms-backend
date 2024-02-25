@@ -24,4 +24,11 @@ public class ItemServiceImpl implements ItemService {
         return itemRepo.findAll().stream().map(itemEntity ->
                 ModelMapperObject.getInstance().map(itemEntity, ItemDto.class)).toList();
     }
+
+    public void changeQuantity(Long itemId){
+        itemRepo.findById(itemId).ifPresent(entity -> {
+            entity.setItemQuantity(entity.getItemQuantity() - 1);
+            itemRepo.save(entity);
+        });
+    }
 }

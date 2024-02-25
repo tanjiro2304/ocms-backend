@@ -26,7 +26,7 @@ public class ItemController {
         return ResponseEntity.ok(item);
     }
 
-    @GetMapping("/fetchAll")
+    @PostMapping("/fetchAll")
     public ResponseEntity<List<ItemDto>> fetchAll() {
         return ResponseEntity.ok(itemService.findAll());
     }

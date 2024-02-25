@@ -16,16 +16,24 @@ import java.util.List;
 @NoArgsConstructor
 public class OrderEntity {
     @Id
+    @Column(name="ORDER_ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long orderId;
 
-    @ManyToMany(cascade = {CascadeType.ALL})
+    @ManyToMany
     @JoinTable(
             name = "ORDER_ITEM",
             joinColumns = {@JoinColumn(name = "ORDER_ID")},
             inverseJoinColumns = {@JoinColumn(name = "ITEM_ID")}
     )
     private List<ItemEntity> orderItems;
+
+    @Column(name = "TOTAL_PRICE")
     private Double totalPrice;
+
+    @Column(name = "ORDER_DATE")
     private LocalDate orderDate;
+
+    @Enumerated(value = EnumType.STRING)
+    private Status orderStatus;
 }

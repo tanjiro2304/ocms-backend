@@ -15,5 +15,5 @@ public class ItemDto {
 
     private Double itemPrice;
 
-    private Integer quantity;
+    private Integer itemQuantity;
 }
